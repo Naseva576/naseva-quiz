@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12243a">
+  <title>漢字・語彙 小テスト | ナセバ学習ナビ</title>
+  <style>
+    :root{--navy:#12243a;--ink:#15263c;--muted:#64748b;--border:#e0e6eb;--paper:#f5f7f8;--gold:#b89a5c;--blue:#294b78;--green:#137852;--red:#b44040}
+    *{box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;margin:0;background:var(--paper);color:var(--ink);line-height:1.7}
+    .site-header{background:var(--navy);color:#fff}
+    .header-inner{max-width:1000px;margin:auto;padding:17px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none}
+    .brand-mark{width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.36);color:#e6cd94;font:600 21px Georgia,serif}
+    .brand-word{font:700 17px Georgia,serif;letter-spacing:.13em}
+    .return{color:#dce5ee;text-decoration:none;font-size:13px}.return:hover{text-decoration:underline}
+    main{max-width:880px;padding:42px 18px 70px;margin:auto}
+    .eyebrow{font-size:12px;letter-spacing:.13em;color:#8d774d;font-weight:700;margin:0 0 9px}
+    .page-title{font-size:23px;letter-spacing:-.02em;margin:0 0 24px}
+    .card{background:white;border:1px solid var(--border);border-radius:12px;box-shadow:0 10px 34px rgba(18,36,58,.055);padding:32px 35px}
+    .muted{font-size:14px;color:var(--muted)}
+    .loading{text-align:center;padding:34px 0 24px}.spinner{display:inline-block;width:30px;height:30px;border:3px solid #d9e2ea;border-top-color:var(--navy);border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+    .error-title{font-weight:700;color:#a33333;margin:0 0 8px;font-size:19px}
+    .small{font-size:12px;color:var(--muted)}
+    .topline{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700;font-size:13px}
+    .unit{color:var(--blue)}.progress-numbers{font-variant-numeric:tabular-nums;color:var(--muted)}
+    .progress-track{height:5px;background:#e6edf2;border-radius:10px;overflow:hidden;margin:16px 0 25px}.progress-fill{background:var(--blue);height:100%;width:0;transition:width .2s}
+    .prompt{font-size:12px;color:#8290a0;letter-spacing:.02em;margin:0 0 13px}
+    .question{font-size:clamp(19px,2.75vw,25px);line-height:1.85;font-weight:700;letter-spacing:.015em;margin:0 0 28px;overflow-wrap:anywhere}
+    .choice-list{display:grid;gap:11px}.choice{display:block;text-align:left;width:100%;border:1px solid #d9e2e9;background:#fff;color:var(--ink);border-radius:8px;padding:14px 17px;font:inherit;font-size:15px;line-height:1.7;cursor:pointer;transition:background .13s,border .13s}.choice:hover:not(:disabled){background:#f0f5fb;border-color:#6c8aae}.choice:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #d6ae5d;outline-offset:2px}.choice:disabled{cursor:default;opacity:1}.choice.correct{background:#e7f5ee;border:2px solid #31976a;color:#126342;padding:13px 16px;font-weight:700}.choice.incorrect{background:#fceced;border:2px solid #d66c6c;color:#9f2e2e;padding:13px 16px}
+    .feedback{margin-top:24px;border:1px solid #dce5ee;border-radius:8px;padding:17px 18px;background:#f7f9fb;display:none}.feedback h3{margin:0 0 5px;font-size:16px}.feedback p{margin:0;font-size:14px}.feedback.right h3{color:#137852}.feedback.wrong h3{color:#b44040}
+    .button-primary{display:inline-flex;justify-content:center;align-items:center;gap:12px;border:1px solid var(--navy);background:var(--navy);color:#fff;border-radius:7px;padding:13px 22px;cursor:pointer;font:inherit;font-size:14px;font-weight:700;text-decoration:none}.button-primary:hover{background:#274c73}.button-outline{display:inline-flex;justify-content:center;align-items:center;gap:8px;border:1px solid #a6b6c6;background:white;color:var(--navy);border-radius:7px;padding:13px 22px;text-decoration:none;cursor:pointer;font:inherit;font-size:14px;font-weight:700}.button-outline:hover{background:#f0f4f8}.next{margin-top:22px;width:100%}
+    .result-top{text-align:center;padding:10px 0 26px;border-bottom:1px solid var(--border)}.result-heading{font-size:22px;margin:0 0 12px}.result-number{font:700 clamp(42px,9vw,62px) Georgia,serif;letter-spacing:-.05em;line-height:1.2}.result-number span{font:400 17px sans-serif;color:var(--muted);letter-spacing:0}.result-message{color:var(--muted);margin:10px 0 0;font-size:14px}.result-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:24px 0 26px}.result-stat{background:#f6f8fa;border:1px solid #edf0f3;border-radius:8px;padding:14px;text-align:center}.result-stat strong{display:block;font-size:24px;line-height:1.4}.result-stat span{font-size:12px;color:var(--muted)}
+    .actions{display:flex;flex-wrap:wrap;gap:10px}.actions>*{flex:1 1 210px}
+    .review{border-top:1px solid var(--border);margin-top:30px;padding-top:22px}.review h3{margin:0 0 11px;font-size:17px}.review-note{font-size:13px;color:var(--muted);margin:0 0 15px}.review-item{padding:17px 0;border-top:1px solid #e9edf0}.review-item:first-of-type{border-top:0}.review-count{font-size:12px;color:var(--muted);font-weight:700;margin:0 0 5px}.review-question{font-size:15px;font-weight:700;margin:0 0 7px}.review-option{font-size:13px;line-height:1.8;margin:0;color:#637186}.review-option.correct{color:var(--green)}.review-option.incorrect{color:var(--red)}
+    [hidden]{display:none!important}
+    @media(max-width:600px){.header-inner{padding:14px 16px} main{padding:28px 13px 46px}.page-title{font-size:20px;margin-bottom:19px}.card{padding:24px 19px}.question{font-size:20px}.choice{font-size:14px;padding:13px}.choice.correct,.choice.incorrect{padding:12px}.actions>*{flex-basis:100%}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">N</span><span class="brand-word">NASEVA</span></a>
+    <a href="./index.html" class="return">← 設定に戻る</a>
+  </div></header>
+  <main>
+    <p class="eyebrow">JAPANESE · TRAINING</p>
+    <h1 class="page-title">漢字・語彙 小テスト</h1>
+    <div class="card" id="loading-screen" role="status" aria-live="polite"><div class="loading"><span class="spinner" aria-hidden="true"></span><p class="muted">問題データを読み込んでいます…</p></div></div>
+    <section class="card" id="quiz-screen" hidden aria-label="小テスト">
+      <div class="topline"><span class="unit" id="unit-label">最重要書き取り</span><span class="progress-numbers" id="progress-label">01 / 50</span></div>
+      <div class="progress-track" role="progressbar" aria-label="出題進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="prompt">問題文の【 】に注目し、正しい選択肢を1つ選んでください。</p>
+      <h2 class="question" id="question-text"></h2>
+      <div class="choice-list" id="choices-container"></div>
+      <div id="feedback" class="feedback" aria-live="polite"><h3 id="feedback-title"></h3><p id="feedback-text"></p></div>
+      <button class="button-primary next" type="button" id="next-button" hidden>次の問題へ <span aria-hidden="true">→</span></button>
+    </section>
+    <section class="card" id="result-screen" hidden aria-label="テスト結果">
+      <div class="result-top"><p class="eyebrow">RESULT / 振り返り</p><h2 class="result-heading">テスト終了</h2><div class="result-number" id="percent">0% <span>正答率</span></div><p class="result-message" id="result-message"></p></div>
+      <div class="result-stats"><div class="result-stat"><strong id="correct-total">0</strong><span>正解</span></div><div class="result-stat"><strong id="wrong-total">0</strong><span>不正解</span></div></div>
+      <div class="actions"><button class="button-primary" id="again-button" type="button">同じ範囲で再挑戦 →</button><button class="button-outline" id="retry-button" type="button" hidden>間違えた問題だけ再テスト</button><a class="button-outline" href="./index.html">ダッシュボードへ</a></div>
+      <div class="review" id="review-section" hidden><h3>間違えた問題</h3><p class="review-note">間違えた問題と正解を確認してから、もう一度挑戦しよう。</p><div id="review-items"></div></div>
+    </section>
+  </main>
+  <script>
+  (() => {
+    'use strict';
+    const byId = id => document.getElementById(id);
+    const params = new URLSearchParams(window.location.search);
+    const toRange = (val, fallback) => { const n=Number(val); return Number.isInteger(n) && n>=1 && n<=16 ? n : fallback; };
+    const lower = Math.min(toRange(params.get('start'),1),toRange(params.get('end'),16));
+    const upper = Math.max(toRange(params.get('start'),1),toRange(params.get('end'),16));
+    const requestedCount = [10,25,50,100].includes(Number(params.get('count'))) ? Number(params.get('count')) : 50;
+    const isRetry = params.get('mode') === 'retry';
+    let bank=[];
+    let selected=[];
+    let current=0;
+    let correct=0;
+    let answered=false;
+    let history=[];
+    function shuffle(array){for(let i=array.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[array[i],array[j]]=[array[j],array[i]];}return array;}
+    function showError(message){
+      const root=byId('loading-screen');root.replaceChildren();
+      const heading=document.createElement('h2');heading.className='error-title';heading.textContent='問題データを読み込めませんでした';
+      const text=document.createElement('p');text.className='muted';text.textContent=message;
+      const note=document.createElement('p');note.className='small';note.textContent='GitHubのリポジトリに index.html / quiz.html / questions.json が同じ階層に置かれているか確認してください。';
+      const link=document.createElement('a');link.className='button-outline';link.href='./index.html';link.textContent='設定画面に戻る';
+      root.append(heading,text,note,link);
+    }
+    function valid(q){return q && Number.isInteger(q.id) && Number.isInteger(q.unitNumber) && typeof q.unit==='string' && typeof q.question==='string' && Array.isArray(q.choices) && q.choices.length===5 && q.choices.every(x=>typeof x==='string'&&x.trim()) && Number.isInteger(q.answer) && q.answer>=1 && q.answer<=5;}
+    async function init(){
+      try{
+        const response=await fetch('./questions.json',{cache:'no-store'});
+        if(!response.ok) throw new Error(`questions.json が見つかりません (HTTP ${response.status})`);
+        const data=await response.json();
+        if(!data || !Array.isArray(data.questions)) throw new Error('questions.json の形式が正しくありません');
+        bank=data.questions.filter(valid);
+        if(!bank.length) throw new Error('利用できる問題がありません');
+        if(isRetry){
+          let stored;
+          try {stored=JSON.parse(sessionStorage.getItem('naseva_retry_ids') || '[]');} catch {stored=[];}
+          if(!Array.isArray(stored)||!stored.length) throw new Error('再テストする問題がありません。通常の小テストから開始してください。');
+          const idSet=new Set(stored.map(Number));
+          selected=shuffle(bank.filter(q=>idSet.has(q.id)));
+        }else{
+          selected=shuffle(bank.filter(q=>q.unitNumber>=lower&&q.unitNumber<=upper)).slice(0,requestedCount);
+        }
+        if(!selected.length) throw new Error('指定された範囲に問題がありません');
+        byId('loading-screen').hidden=true;
+        byId('quiz-screen').hidden=false;
+        draw();
+      }catch(error){console.error('NASEVA Quiz:',error);showError(error.message || '不明なエラー');}
+    }
+    function draw(){
+      const q=selected[current];answered=false;
+      byId('unit-label').textContent=q.unit;
+      byId('progress-label').textContent=`${String(current+1).padStart(2,'0')} / ${String(selected.length).padStart(2,'0')}`;
+      byId('progress-fill').style.width=`${(current+1)/selected.length*100}%`;
+      byId('progress-track').setAttribute('aria-valuenow',String(Math.round((current+1)/selected.length*100)));
+      byId('question-text').textContent=q.question;
+      byId('feedback').style.display='none';byId('feedback').classList.remove('right','wrong');
+      byId('next-button').hidden=true;
+      const container=byId('choices-container');container.replaceChildren();
+      q.choices.forEach((label,index)=>{
+        const button=document.createElement('button');button.type='button';button.className='choice';button.textContent=label;
+        button.setAttribute('aria-label',`選択肢 ${index+1}：${label}`);
+        button.addEventListener('click',()=>answer(index+1));
+        container.appendChild(button);
+      });
+    }
+    function answer(chosen){
+      if(answered) return;
+      answered=true;
+      const q=selected[current];const right=chosen===q.answer;
+      if(right) correct++;
+      history.push({question:q,chosen,correct:right});
+      const buttons=[...byId('choices-container').children];
+      buttons.forEach((button,index)=>{
+        button.disabled=true;
+        if(index+1===q.answer) button.classList.add('correct');
+        else if(index+1===chosen) button.classList.add('incorrect');
+      });
+      byId('feedback').classList.add(right?'right':'wrong');
+      byId('feedback-title').textContent=right?'正解！':'不正解';
+      byId('feedback-text').textContent=right?'この調子で次の問題に進もう。':`正解：${q.choices[q.answer-1]}`;
+      byId('feedback').style.display='block';
+      byId('next-button').hidden=false;
+      byId('next-button').textContent=current===selected.length-1?'結果を見る →':'次の問題へ →';
+      byId('next-button').focus();
+    }
+    function showResults(){
+      byId('quiz-screen').hidden=true;byId('result-screen').hidden=false;
+      const total=history.length;const misses=history.filter(a=>!a.correct);
+      const percentage=Math.round((correct/total)*100);
+      byId('percent').textContent=`${percentage}%`;
+      byId('result-message').textContent=`全${total}問中、${correct}問正解。`+(misses.length===0?'全問正解。よくできました！':'間違えた問題は下で確認できます。');
+      byId('correct-total').textContent=String(correct);byId('wrong-total').textContent=String(misses.length);
+      byId('retry-button').hidden=misses.length===0;
+      byId('review-section').hidden=misses.length===0;
+      const list=byId('review-items');list.replaceChildren();
+      misses.forEach((entry,index)=>{
+        const article=document.createElement('article');article.className='review-item';
+        const count=document.createElement('p');count.className='review-count';count.textContent=`REVIEW ${String(index+1).padStart(2,'0')}　${entry.question.unit}`;
+        const question=document.createElement('p');question.className='review-question';question.textContent=entry.question.question;
+        const wrong=document.createElement('p');wrong.className='review-option incorrect';wrong.textContent=`あなたの回答：${entry.question.choices[entry.chosen-1]}`;
+        const right=document.createElement('p');right.className='review-option correct';right.textContent=`正解：${entry.question.choices[entry.question.answer-1]}`;
+        article.append(count,question,wrong,right);list.appendChild(article);
+      });
+      byId('retry-button').onclick=()=>{
+        try {sessionStorage.setItem('naseva_retry_ids',JSON.stringify(misses.map(entry=>entry.question.id)));} catch(error) {alert('再テストの準備に失敗しました。ブラウザの保存設定を確認してください。');return;}
+        window.location.href=`./quiz.html?mode=retry&start=${lower}&end=${upper}&count=${requestedCount}`;
+      };
+      byId('again-button').onclick=()=>{
+        const url=`./quiz.html?start=${lower}&end=${upper}&count=${requestedCount}`;
+        window.location.href=url;
+      };
+    }
+    byId('next-button').addEventListener('click',()=>{
+      if(!answered)return;
+      if(current+1>=selected.length) showResults();else{current++;draw();}
+    });
+    document.addEventListener('keydown',event=>{
+      if(event.altKey||event.ctrlKey||event.metaKey||event.repeat||byId('quiz-screen').hidden)return;
+      const target=event.target;
+      if(target instanceof HTMLElement && ['INPUT','TEXTAREA','SELECT'].includes(target.tagName))return;
+      if(!answered && /^[1-5]$/.test(event.key))answer(Number(event.key));
+    });
+    init();
+  })();
+  </script>
+</body>
+</html>

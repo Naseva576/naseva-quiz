@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12243a">
+  <title>ナセバ学習ナビ | 漢字・語彙 小テスト</title>
+  <style>
+    :root{--ink:#15263c;--navy:#12243a;--muted:#64748b;--border:#e0e6eb;--surface:#ffffff;--paper:#f5f7f8;--gold:#c9a75c;--blue:#294b78;--shadow:0 12px 36px rgba(18,36,58,.06)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7}
+    .site-header{background:var(--navy);color:#fff}
+    .header-inner{max-width:1100px;margin:auto;padding:17px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:#fff}
+    .brand-mark{width:40px;height:40px;border:1px solid rgba(255,255,255,.36);display:grid;place-items:center;font:600 22px Georgia,serif;color:#e6cd94}
+    .brand-name{display:block;font:700 18px Georgia,serif;letter-spacing:.13em;line-height:1.1}
+    .brand-sub{display:block;font-size:11px;color:#bbcad8;letter-spacing:.1em;margin-top:5px}
+    .header-label{font-size:11px;color:#c6d1dc;letter-spacing:.15em}
+    main{max-width:1100px;margin:0 auto;padding:58px 26px 72px}
+    .eyebrow{font-size:12px;letter-spacing:.18em;font-weight:700;color:#8a6f3a;margin:0 0 14px}
+    h1{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.04em;margin:0;line-height:1.35}
+    .lead{color:var(--muted);margin:18px 0 42px;font-size:15px;max-width:660px}
+    .grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:24px;align-items:start}
+    .panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+    .panel-head{padding:26px 30px 20px;border-bottom:1px solid #edf0f3;display:flex;align-items:center;gap:14px}
+    .panel-index{color:#9c814b;font:700 20px Georgia,serif}
+    .panel-head h2{font-size:19px;margin:0;letter-spacing:-.02em}
+    .panel-head p{font-size:12px;color:var(--muted);margin:3px 0 0}
+    .panel-content{padding:27px 30px 30px}
+    .field-label{display:block;font-size:13px;font-weight:700;margin-bottom:9px}
+    .range-grid{display:grid;grid-template-columns:1fr 26px 1fr;gap:9px;align-items:end;margin-bottom:24px}
+    .between{text-align:center;padding-bottom:14px;color:#748191;font-weight:700}
+    select{background:white;border:1px solid #cbd5df;color:var(--ink);border-radius:7px;padding:12px 13px;width:100%;min-height:48px;font-size:15px;font-family:inherit;cursor:pointer}
+    select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #d6ae5d;outline-offset:3px}
+    .count-area{margin-bottom:24px}
+    .details{background:#f6f8fa;border:1px solid #e7ebef;border-radius:8px;padding:13px 15px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#50647a}
+    .details strong{color:var(--ink)}
+    .details svg{flex:0 0 auto;margin-top:3px}
+    .primary{width:100%;background:var(--navy);color:white;border:1px solid var(--navy);border-radius:7px;padding:15px 18px;font:700 15px inherit;font-size:15px;font-weight:700;cursor:pointer;display:flex;gap:10px;align-items:center;justify-content:center;transition:background .17s}
+    .primary:hover:not(:disabled){background:#28496e}
+    .primary:disabled{opacity:.48;cursor:not-allowed}
+    .error{color:#b42318}
+    .aside{padding:25px 27px}
+    .aside h2{font-size:16px;margin:0 0 21px}
+    .feature{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--border)}
+    .feature:first-of-type{border-top:0;padding-top:0}
+    .feature-number{font:700 16px Georgia,serif;color:#a98b54}
+    .feature strong{font-size:14px}
+    .feature p{margin:4px 0 0;font-size:12px;color:var(--muted);line-height:1.75}
+    .stat{border-top:1px solid var(--border);padding-top:20px;margin-top:6px;display:flex;align-items:baseline;gap:9px}
+    .stat strong{font:700 30px Georgia,serif}
+    .stat span{color:var(--muted);font-size:13px}
+    .footer{max-width:1100px;padding:0 26px 28px;margin:auto;font-size:11px;color:#94a3b8}
+    @media(max-width:740px){.header-inner{padding:14px 18px} .header-label{display:none}main{padding:38px 16px 46px}.lead{margin-bottom:28px}.grid{grid-template-columns:1fr;gap:16px}.panel-head{padding:21px}.panel-content{padding:22px}.aside{padding:23px}.footer{padding:0 16px 20px}}
+    @media(max-width:390px){.range-grid{grid-template-columns:1fr 18px 1fr;gap:5px}select{font-size:13px;padding:10px 5px}.panel-head h2{font-size:17px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./index.html" aria-label="ナセバ学習ナビ トップ">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span><span class="brand-name">NASEVA</span><span class="brand-sub">学習ナビ</span></span>
+      </a>
+      <span class="header-label">LEARNING TOOLS / KANJI</span>
+    </div>
+  </header>
+  <main>
+    <p class="eyebrow">DAILY PRACTICE · JAPANESE</p>
+    <h1>漢字を、確実な得点源に。</h1>
+    <p class="lead">指定した単元からランダムに出題。その場で正誤を確認し、間違えた問題は最後にもう一度振り返れます。</p>
+    <div class="grid">
+      <section class="panel" aria-labelledby="test-title">
+        <div class="panel-head"><span class="panel-index">01</span><div><h2 id="test-title">漢字・語彙 小テスト</h2><p>5択式 / 最重要書き取り 1〜16</p></div></div>
+        <div class="panel-content">
+          <form id="quiz-form">
+            <div class="range-grid">
+              <div><label class="field-label" for="start-range">開始単元</label><select id="start-range" name="start"></select></div>
+              <span class="between" aria-hidden="true">〜</span>
+              <div><label class="field-label" for="end-range">終了単元</label><select id="end-range" name="end"></select></div>
+            </div>
+            <div class="count-area"><label class="field-label" for="question-count">出題数</label><select id="question-count" name="count"><option value="10">10問</option><option value="25">25問</option><option value="50" selected>50問</option><option value="100">100問</option></select></div>
+            <div class="details" aria-live="polite">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              <span id="availability">問題データを確認しています…</span>
+            </div>
+            <button class="primary" id="start-button" type="submit" disabled>テストを開始する <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+      </section>
+      <aside class="panel aside" aria-label="小テストの進め方">
+        <h2>小テストの進め方</h2>
+        <div class="feature"><span class="feature-number">1.</span><div><strong>単元と問題数を選ぶ</strong><p>1〜16の好きな範囲を指定。問題は毎回ランダムに抽出します。</p></div></div>
+        <div class="feature"><span class="feature-number">2.</span><div><strong>5つの選択肢から回答</strong><p>回答後に正解と不正解を確認し、次の問題に進みます。</p></div></div>
+        <div class="feature"><span class="feature-number">3.</span><div><strong>結果を振り返る</strong><p>得点と間違えた問題を確認。誤答だけの再テストもできます。</p></div></div>
+        <div class="stat"><strong id="total-count">400</strong><span>問の問題データを収録</span></div>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer">© <span id="year"></span> NASEVA · 学習の成果は、正しい積み重ねから。</footer>
+  <script>
+  (() => {
+    'use strict';
+    const start = document.getElementById('start-range');
+    const end = document.getElementById('end-range');
+    const count = document.getElementById('question-count');
+    const availability = document.getElementById('availability');
+    const launch = document.getElementById('start-button');
+    const totals = document.getElementById('total-count');
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const params = new URLSearchParams(window.location.search);
+    const requestedStart = Number(params.get('start'));
+    const requestedEnd = Number(params.get('end'));
+    for (let n=1; n<=16; n++) {
+      for (const elem of [start,end]) {
+        const option = document.createElement('option');
+        option.value = String(n);
+        option.textContent = `最重要書き取り ${n}`;
+        elem.appendChild(option);
+      }
+    }
+    start.value = String(Number.isInteger(requestedStart) && requestedStart>=1 && requestedStart<=16 ? requestedStart : 1);
+    end.value = String(Number.isInteger(requestedEnd) && requestedEnd>=1 && requestedEnd<=16 ? requestedEnd : 16);
+    let questions = [];
+    function refresh() {
+      if (!questions.length) return;
+      const low = Math.min(Number(start.value),Number(end.value));
+      const high = Math.max(Number(start.value),Number(end.value));
+      const available = questions.filter(q => q.unitNumber>=low && q.unitNumber<=high).length;
+      const selected = Number(count.value);
+      const actual = Math.min(available,selected);
+      availability.classList.toggle('error',available===0);
+      availability.textContent = available===0 ? 'この範囲には問題がありません。' : `選択範囲：${available}問 / 今回の出題：${actual}問` + (actual<selected ? '（登録数に合わせて調整）' : '');
+      launch.disabled = available===0;
+    }
+    [start,end,count].forEach(el => el.addEventListener('change',refresh));
+    document.getElementById('quiz-form').addEventListener('submit',event=>{
+      event.preventDefault();
+      if (launch.disabled) return;
+      const low = Math.min(Number(start.value),Number(end.value));
+      const high = Math.max(Number(start.value),Number(end.value));
+      window.location.href = `./quiz.html?start=${low}&end=${high}&count=${count.value}`;
+    });
+    async function init() {
+      try {
+        const response=await fetch('./questions.json',{cache:'no-store'});
+        if(!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data=await response.json();
+        if(!data||!Array.isArray(data.questions)) throw new Error('問題データの形式が不正です');
+        questions=data.questions.filter(q=>Number.isInteger(q.unitNumber)&&Array.isArray(q.choices)&&q.choices.length===5&&Number.isInteger(q.answer)&&q.answer>=1&&q.answer<=5&&typeof q.question==='string');
+        if(!questions.length) throw new Error('有効な問題がありません');
+        totals.textContent=questions.length.toLocaleString('ja-JP');
+        refresh();
+      } catch(error) {
+        availability.classList.add('error');
+        availability.textContent=`問題データが読み込めません（${error.message}）。GitHubに questions.json があるか確認してください。`;
+        console.error('NASEVA data loading failed:',error);
+      }
+    }
+    init();
+  })();
+  </script>
+</body>
+</html>
